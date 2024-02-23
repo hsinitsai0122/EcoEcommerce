@@ -1,8 +1,10 @@
 ﻿using ASP_EcoEcommerce.Handlers;
+using ASP_EcoEcommerce.Models;
 using BLL_EcoEcommerce.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Shared_EcoEcommerce.Repositories;
+using System.Collections.Generic;
 using BLL = BLL_EcoEcommerce.Entities;
 
 namespace ASP_EcoEcommerce.Controllers
@@ -27,8 +29,16 @@ namespace ASP_EcoEcommerce.Controllers
         // GET: CartController1
         public ActionResult Index()
         {
-            var cart = _cartSessionManager.Cart;
-            return View(cart);
+
+            //var cart = _cartSessionManager.Cart;
+            //var product = _productRepository.GetById();
+            //var orderItems = _orderItemRepository.Get
+            //IEnumerable<CartListItemViewModel> model = _cartRepository.GetAll()
+
+
+
+            //return View(model);
+            return View();
         }
 
         // GET: CartController1/Details/5

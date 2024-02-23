@@ -8,16 +8,16 @@ namespace ASP_EcoEcommerce.Handlers
 {
     public class CartSessionManager : SessionManager
     {
-        public Dictionary<Product, int> Cart
+        public Dictionary<int, int> Cart
         {
             get
             {
                 string cartJson = _session.GetString("Cart");
-                return !string.IsNullOrEmpty(cartJson) ? JsonSerializer.Deserialize<Dictionary<Product, int>>(cartJson) : new Dictionary<Product, int>();
+                return !string.IsNullOrEmpty(cartJson) ? JsonSerializer.Deserialize<Dictionary<int, int>>(cartJson) : new Dictionary<int, int>();
             }
             set
             {
-                _session.SetString("Cart", JsonSerializer.Serialize(value));
+                _session.SetString("Cart", JsonSerializer.Serialize<Dictionary<int, int>>(value));
             }
         }
 
@@ -28,14 +28,14 @@ namespace ASP_EcoEcommerce.Handlers
         public void AddToCart(Product product, int quantity)
         {
             
-                Dictionary<Product, int> newCart = Cart;
-            if (newCart.ContainsKey(product))
+                Dictionary<int, int> newCart = Cart;
+            if (newCart.ContainsKey(product.Id_Product))
             {
-                newCart[product]+= quantity;
+                newCart[product.Id_Product]+= quantity;
             }
             else
             {
-                newCart.Add(product, quantity);
+                newCart.Add(product.Id_Product, quantity);
 
             }
                 Cart = newCart;

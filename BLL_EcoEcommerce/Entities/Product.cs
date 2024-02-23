@@ -28,5 +28,13 @@ namespace BLL_EcoEcommerce.Entities
             EcoCriteria = ecoCriteria;
         }
 
+        public Product(int id_Product, string name, decimal price)
+        {
+            Id_Product = id_Product;
+            Name = name;
+            Price = price;
+
+        }
+
     }
 }

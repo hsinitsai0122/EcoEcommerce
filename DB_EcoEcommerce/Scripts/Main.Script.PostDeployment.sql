@@ -44,3 +44,14 @@ VALUES
     ('serumGarnier2.jpg', 3);
 
 GO
+
+INSERT INTO [Cart] ([OrderNumber], [OrderDate])
+VALUES 
+    ('ORD123456', GETDATE()), 
+    ('ORD789012', GETDATE());
+
+INSERT INTO [OrderItem] ([Quantity], [Id_Product], [Id_Cart])
+VALUES 
+    (2, 1, 1),  
+    (1, 2, 1), 
+    (3, 3, 2);  

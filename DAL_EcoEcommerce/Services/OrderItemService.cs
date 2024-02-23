@@ -57,16 +57,6 @@ namespace DAL_EcoEcommerce.Services
             }
         }
 
-        public OrderItem GetCartItem(int Id_OrderItem)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<OrderItem> GetCartItems()
-        {
-            throw new NotImplementedException();
-        }
-
         public int Insert(OrderItem entity)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))

@@ -94,6 +94,40 @@ namespace ASP_EcoEcommerce.Handlers
     }
 
 
+
     #endregion
+
+    //#region Cart
+    //public static CartListItemViewModel ToListItem(this BLL.Cart entity)
+    //{
+    //    if (entity == null) return null;
+    //    return new CartListItemViewModel
+    //    {
+    //        Id_Cart = entity.Id_Cart,
+    //        OrderNumber = entity.OrderNumber,
+    //        OrderDate = entity.OrderDate,
+    //        OrderItems = entity.OrderItems.Select(d => d.ToListItem()),
+    //    };
+    //}
+
+
+    //#endregion
+
+    //#region OrderItem
+    //public static OrderItemListItemViewModel ToListItem(this BLL.OrderItem entity)
+    //{
+    //    if (entity == null) return null;
+    //    return new OrderItemListItemViewModel
+    //    {
+    //        Id_OrderItem = entity.Id_OrderItem,
+    //        Quantity = entity.Quantity,
+    //        Id_Product = entity.Id_Product,
+    //        ItemPrice = entity.ItemPrice,
+    //        Id_Cart = entity.Id_Cart
+    //    };
+    //}
+
+    //#endregion
+
 
 }
