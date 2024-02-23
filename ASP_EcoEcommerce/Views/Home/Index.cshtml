@@ -1,0 +1,68 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+
+}
+
+
+<div class="container homepage">
+
+    <h1>Welcome to Our EcoMart!</h1>
+
+
+    <div id="productListContainer" class="search-bar-container">
+        <form asp-controller="Product" asp-action="FilterByName" class="search-bar rounded">
+            <input name="searchTerm" type="text"  placeholder="Search products...">
+            <button type="submit" id="searchButton">Search</button>
+        </form>
+    </div>
+
+    <div class="filter-container">
+        <div class="row">
+            <!-- Filter by popularity -->
+            <div class="col-md-4">
+                <div class="input-group rounded">
+                    <span class="input-group-text">Popularity</span>
+                    <select id="filterPopularity" class="form-select" aria-label="Filter by popularity">
+                        <option selected>Choose</option>
+                        <option>Highest to Lowest</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Filter by category -->
+            <div class="col-md-4">
+                <div class="input-group rounded">
+                    <span class="input-group-text">Category</span>
+                    <select id="filterCategory" class="form-select" aria-label="Filter by category">
+                        <option selected>Choose</option>
+                        <option>Grocery</option>
+                        <option>Electronics</option>
+                        <option>Beauty</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Filter by eco-score -->
+            <div class="col-md-4">
+                <div class="input-group rounded">
+                    <span class="input-group-text">Eco-score</span>
+                    <select id="filterEcoScore" class="form-select" aria-label="Filter by eco-score">
+                        <option selected>Choose</option>
+                        <option>A</option>
+                        <option>B</option>
+                        <option>C</option>
+                        <option>D</option>
+                        <option>E</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div id="showAllProductsButton" class="col-md-12 text-center">
+            <button class="btn btn-primary rounded-pill" id="showAllProductsButton">Show All Products</button>
+        </div>
+    </div>
+
+</div>
+

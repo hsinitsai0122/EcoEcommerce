@@ -1,0 +1,199 @@
+html {
+  font-size: 14px;
+  
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    font-family: 'Montserrat Alternates', sans-serif;
+    margin-bottom: 60px;
+    background-image: url('/assets/ecoBackground.png');
+    color: white;
+}
+
+.navbar-brand img {
+
+    height: 50px;
+}
+
+.image-index {
+    margin: 10px;
+    max-width: 100px;
+    max-height: 100px;
+}
+
+.image-details {
+    margin: 50px;
+    padding: 50px;
+    max-width: 350px;
+    max-height: 350px;
+}
+
+h1 {
+    margin: 60px 0 0 0;
+    font-family: 'Julius Sans One', sans-serif;
+    
+}
+
+h4 {
+    text-align: center;
+    font-family: 'Julius Sans One', sans-serif;
+    font-weight:bold;
+    line-height: 1.5;
+}
+
+
+.homepage {
+   
+    width: 1920px;
+    background-size: cover;
+    color: white;
+}
+
+.whiteBackground {
+    background-color: white;
+    color: black;
+    padding: 50px;
+    border-radius: 10px;
+}
+
+.details {
+    background-color: white;
+    color: black;
+    padding: 50px;
+    border-radius: 10px;
+}
+
+.container h1 {
+    text-align: center;;
+    font-size: 50px;
+    padding: 50px;
+}
+
+.search-bar-container {
+    padding: 0px 0px 50px;
+    margin-top: 50px;
+}
+
+.search-bar {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.search-bar input[type="text"] {
+    width: 70%;
+    padding: 10px;
+    border-radius: 40px;
+    box-sizing: border-box;
+    border: none;
+}
+
+    .search-bar button {
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 40px;
+        cursor: pointer;
+    }
+
+.search-bar button:hover {
+    background-color: #45a049;
+}
+
+.search-bar input[type="text"]:focus {
+    border-color: #ff0000; 
+    outline: none; 
+}
+
+
+.form-select {
+    border-radius: 40px;
+    box-sizing: border-box;
+    border: none;
+}
+
+
+.input-group-text {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+}
+
+.btn-primary {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 50px;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+    background-color: #45a049;
+    border: none;
+}
+
+
+
+.table {
+    background-color: white;
+    border-radius: 20px;
+    
+}
+
+.table th {
+    background-color: #4CAF50;
+    color: white;
+    text-align:center;
+    vertical-align: middle;
+}
+
+.table td {
+    padding-left:50px;
+}
+
+
+
+
+a {
+    -webkit-text-decoration: inherit;
+    text-decoration: inherit;
+    color:black;
+    padding:0;
+    margin:0;
+}
+
+    a:hover,
+    a:focus,
+    a:active {
+        color: #4CAF50;
+    }
+
+
+.form{
+    background-color: white;
+    color: black;
+}
+
+.row {
+    justify-content: center;
+
+    color: black;
+}

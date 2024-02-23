@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DAL_EcoEcommerce\DAL_EcoEcommerce.csproj" />
+    <ProjectReference Include="..\Shared_EcoEcommerce\Shared_EcoEcommerce.csproj" />
+  </ItemGroup>
+
+</Project>

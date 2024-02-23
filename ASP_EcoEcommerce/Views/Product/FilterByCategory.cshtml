@@ -1,0 +1,62 @@
+﻿@model IEnumerable<ASP_EcoEcommerce.Models.ProductListItemViewModel>
+
+@{
+    ViewData["Title"] = "Filter By Category";
+}
+
+<h1>Products Filter By Category</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProCateg)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EcoCriteria)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @if (ViewBag.MediaUrl.ContainsKey(item.Id_Product))
+                {
+                    <img src="@Url.Content("~/assets/" + ViewBag.MediaUrl[item.Id_Product])" alt="Product Image" class="image-index" />
+
+                }
+                else
+                {
+
+                    <img src="@Url.Content("~/assets/placeholderImageIndex.png")" alt="Placeholder Image" class="image-index" />
+                }
+            </td>
+            <td>
+                @Html.ActionLink(item.Name, "Details", "Product", new { id = item.Id_Product }, null)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProCateg)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EcoCriteria)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td></td>
+        </tr>
+}
+    </tbody>
+</table>
