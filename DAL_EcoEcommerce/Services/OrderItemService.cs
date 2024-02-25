@@ -1,6 +1,4 @@
 ﻿using DAL_EcoEcommerce.Entities;
-using Microsoft.Extensions.Configuration;
-using Shared_EcoEcommerce.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -8,6 +6,8 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Shared_EcoEcommerce.Repositories;
+using Microsoft.Extensions.Configuration;
 using DAL_EcoEcommerce.Mappers;
 
 namespace DAL_EcoEcommerce.Services
@@ -29,10 +29,7 @@ namespace DAL_EcoEcommerce.Services
                     connection.Open();
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
-                        while (reader.Read())
-                        {
-                            yield return reader.ToOrderItem();
-                        }
+                        while (reader.Read()) yield return reader.ToOrderItem();
                     }
                 }
             }
@@ -44,7 +41,7 @@ namespace DAL_EcoEcommerce.Services
             {
                 using (SqlCommand command = connection.CreateCommand())
                 {
-                    command.CommandText = "SELECT * FROM [OrderItem] WHERE [Id_OrderItem] = @id";
+                    command.CommandText = "SELECT * FROM [OrderItem] WHERE [Id_OrderItem] = @id_OrderItem";
                     command.CommandType = CommandType.Text;
                     command.Parameters.AddWithValue("@Id_OrderItem", id);
                     connection.Open();
@@ -55,6 +52,26 @@ namespace DAL_EcoEcommerce.Services
                     }
                 }
             }
+        }
+
+        public IEnumerable<OrderItem> GetAllItemsByIdCart(int id)
+        {
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                using (SqlCommand command = new SqlCommand())
+                {
+                    command.Connection = connection; // Assign the connection to the command
+                    command.CommandText = "SELECT * FROM [OrderItem] WHERE [Id_Cart]= @id_Cart";
+                    command.CommandType = CommandType.Text;
+                    command.Parameters.AddWithValue("id_Cart", id);
+                    connection.Open();
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read()) yield return reader.ToOrderItem();
+                    }
+                }
+            }
+
         }
 
         public int Insert(OrderItem entity)
@@ -88,17 +105,35 @@ namespace DAL_EcoEcommerce.Services
                     command.Parameters.AddWithValue("Id_Cart", entity.Id_Cart);
                     connection.Open();
                     if (command.ExecuteNonQuery() <= 0)
-                        throw new ArgumentException(nameof(entity.Id_Cart), $"OrderItem Id {entity.Id_OrderItem} not found");
+                        throw new ArgumentException(nameof(entity.Id_Cart), $"Order Item Id {entity.Id_OrderItem} not found");
                 }
             }
         }
+        public void UpdateOrderItemQuantity(int id_orderItem, int quantity)
+        {
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                using (SqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "UPDATE [OrderItem] SET [Quantity] = @Quantity WHERE [Id_OrderItem] = @Id_OrderItem";
+                    command.CommandType = CommandType.Text;
+                    command.Parameters.AddWithValue("@Id_OrderItem", id_orderItem);
+                    command.Parameters.AddWithValue("@Quantity", quantity);
+                    connection.Open();
+                    int rowsAffected = command.ExecuteNonQuery();
+                    if (rowsAffected <= 0)
+                        throw new ArgumentException(nameof(id_orderItem), $"OrderItem Id {id_orderItem} not found");
+                }
+            }
+        }
+
         public void Delete(int id)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 using (SqlCommand command = connection.CreateCommand())
                 {
-                    command.CommandText = "DELETE FROM [OrderItem] WHERE [Id_OrderItem] = @id";
+                    command.CommandText = "DELETE FROM [OrderItem] WHERE [Id_OrderItem] = @id_OrderItem";
                     command.CommandType = CommandType.Text;
                     command.Parameters.AddWithValue("Id_OrderItem", id);
                     connection.Open();
@@ -108,5 +143,6 @@ namespace DAL_EcoEcommerce.Services
             }
         }
 
+       
     }
 }

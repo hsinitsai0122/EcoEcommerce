@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[SP_Cart_GetAll]
+﻿CREATE PROCEDURE [dbo].[SP_Cart_GetAllItemsInCart]
 
 AS
 	SELECT 

@@ -7,12 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DAL = DAL_EcoEcommerce.Entities;
+using BLL = BLL_EcoEcommerce.Entities;
 
 namespace BLL_EcoEcommerce.Services
 {
     public class CartService : ICartRepository<Cart>
     {
         private readonly ICartRepository<DAL.Cart> _cartRepository;
+   
 
         public CartService(ICartRepository<DAL.Cart> cartRepository)
         {
@@ -26,15 +28,7 @@ namespace BLL_EcoEcommerce.Services
 
         public Cart GetById(int id)
         {
-            Cart entity = _cartRepository.GetById(id).ToBLL();
-            if (!(entity.Id_Cart == 0))
-            {
-                return entity;
-            }
-            else
-            {
-                return null;
-            }
+            return _cartRepository.GetById(id).ToBLL();
         }
 
         public int Insert(Cart entity)
@@ -50,5 +44,7 @@ namespace BLL_EcoEcommerce.Services
         {
             _cartRepository.Delete(id);
         }
+
+       
     }
 }

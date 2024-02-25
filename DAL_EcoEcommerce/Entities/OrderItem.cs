@@ -15,5 +15,6 @@ namespace DAL_EcoEcommerce.Entities
 
         public int Id_Cart { get; set; }
 
+
     }
 }

@@ -13,5 +13,10 @@ namespace DAL_EcoEcommerce.Entities
         public string OrderNumber { get; set; }
 
         public DateTime OrderDate { get; set; }
+
+        public int Quantity { get; set; }
+        public int Id_Product { get; set; }
+
+        public List<OrderItem> OrderItems { get; set; }
     }
 }

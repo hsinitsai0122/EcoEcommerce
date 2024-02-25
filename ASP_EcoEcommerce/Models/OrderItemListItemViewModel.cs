@@ -15,8 +15,6 @@ namespace ASP_EcoEcommerce.Models
         [HiddenInput]
         public int Id_Product { get; set; }
 
-        public decimal ItemPrice { get; set; }
-
         [HiddenInput]
         public int Id_Cart { get; set; }
     }

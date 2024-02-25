@@ -68,7 +68,7 @@
     <Build Include="Tables\OrderItem.sql" />
     <Build Include="StoredProcedures\SP_Product_GetAll.sql" />
     <Build Include="Tables\Cart.sql" />
-    <Build Include="StoredProcedures\SP_Cart_GetAll.sql" />
+    <Build Include="StoredProcedures\SP_Cart_GetAllItemsInCart.sql" />
     <Build Include="StoredProcedures\SP_AddProductToCart.sql" />
     <Build Include="StoredProcedures\SP_Product_GetById.sql" />
     <Build Include="StoredProcedures\SP_Product_Insert.sql" />

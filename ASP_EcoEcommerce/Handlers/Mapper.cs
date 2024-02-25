@@ -82,7 +82,8 @@ namespace ASP_EcoEcommerce.Handlers
         public static ProductDeleteForm ToDelete(this BLL.Product entity)
         {
             if (entity is null) return null;
-            return new ProductDeleteForm() {
+            return new ProductDeleteForm()
+            {
                 Id_Product = entity.Id_Product,
                 Name = entity.Name,
                 Description = entity.Description,
@@ -91,43 +92,55 @@ namespace ASP_EcoEcommerce.Handlers
                 EcoCriteria = entity.EcoCriteria
             };
         }
+
+
+        #endregion
+
+        #region OrderItem
+        public static OrderItemListItemViewModel ToListItem(this BLL.OrderItem entity)
+        {
+            if (entity is null) return null;
+            return new OrderItemListItemViewModel()
+            {
+                Id_OrderItem = entity.Id_OrderItem,
+                Quantity = entity.Quantity,
+                Id_Product = entity.Id_Product,
+                Id_Cart = entity.Id_Cart
+            };
+        }
+
+
+        #endregion
+
+        #region Cart
+        public static CartListItemViewModel ToListItem(this BLL.Cart entity)
+        {
+            if (entity is null) return null;
+            return new CartListItemViewModel()
+            {
+                Id_Cart = entity.Id_Cart,
+                OrderNumber = entity.OrderNumber,
+                OrderDate = entity.OrderDate,
+                //OrderItems = entity.OrderItems.Select(d => d.ToListItem())
+            };
+        }
+
+        public static CartDetailsViewModel ToDetails(this BLL.Cart entity)
+        {
+            if(entity is null) return null;
+            return new CartDetailsViewModel()
+            {
+                Id_Cart = entity.Id_Cart,
+                OrderNumber = entity.OrderNumber,
+                OrderDate = entity.OrderDate,
+                //OrderItems = entity.OrderItems.Select(d => d.ToListItem()),
+
+            };
+        }
+
+        #endregion
     }
-
-
-
-    #endregion
-
-    //#region Cart
-    //public static CartListItemViewModel ToListItem(this BLL.Cart entity)
-    //{
-    //    if (entity == null) return null;
-    //    return new CartListItemViewModel
-    //    {
-    //        Id_Cart = entity.Id_Cart,
-    //        OrderNumber = entity.OrderNumber,
-    //        OrderDate = entity.OrderDate,
-    //        OrderItems = entity.OrderItems.Select(d => d.ToListItem()),
-    //    };
-    //}
-
-
-    //#endregion
-
-    //#region OrderItem
-    //public static OrderItemListItemViewModel ToListItem(this BLL.OrderItem entity)
-    //{
-    //    if (entity == null) return null;
-    //    return new OrderItemListItemViewModel
-    //    {
-    //        Id_OrderItem = entity.Id_OrderItem,
-    //        Quantity = entity.Quantity,
-    //        Id_Product = entity.Id_Product,
-    //        ItemPrice = entity.ItemPrice,
-    //        Id_Cart = entity.Id_Cart
-    //    };
-    //}
-
-    //#endregion
-
-
 }
+
+
+

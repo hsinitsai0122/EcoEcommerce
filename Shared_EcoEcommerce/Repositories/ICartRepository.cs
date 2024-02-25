@@ -8,6 +8,7 @@ namespace Shared_EcoEcommerce.Repositories
 {
     public interface ICartRepository<TEntity> : ICRUDRepository<TEntity, int>
     {
+      
 
     }
 }

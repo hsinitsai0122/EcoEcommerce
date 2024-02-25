@@ -15,36 +15,38 @@ namespace ASP_EcoEcommerce.Controllers
         private readonly IProductRepository<BLL.Product> _productRepository;
         private readonly IMediaRepository<BLL.Media> _mediaRepository;
         private readonly IOrderItemRepository<BLL.OrderItem> _orderItemRepository;
-        private readonly CartSessionManager _cartSessionManager;
+        //private readonly CartSessionManager _cartSessionManager;
 
-        public CartController(ICartRepository<Cart> cartRepository, IProductRepository<Product> productRepository, IMediaRepository<Media> mediaRepository, IOrderItemRepository<OrderItem> orderItemRepository, CartSessionManager cartSessionManager)
+        public CartController(ICartRepository<Cart> cartRepository, IProductRepository<Product> productRepository, IMediaRepository<Media> mediaRepository, IOrderItemRepository<OrderItem> orderItemRepository)
         {
             _cartRepository = cartRepository;
             _productRepository = productRepository;
             _mediaRepository = mediaRepository;
             _orderItemRepository = orderItemRepository;
-            _cartSessionManager = cartSessionManager;
+         //   _cartSessionManager = cartSessionManager;
         }
 
         // GET: CartController1
         public ActionResult Index()
         {
 
-            //var cart = _cartSessionManager.Cart;
-            //var product = _productRepository.GetById();
-            //var orderItems = _orderItemRepository.Get
-            //IEnumerable<CartListItemViewModel> model = _cartRepository.GetAll()
+            IEnumerable<CartListItemViewModel> model = _cartRepository.GetAll().Select(d => d.ToListItem());
+  //          var cart = _cartRepository.GetById(id_Cart);
+  
 
+            //var orderItems = _orderItemRepository.GetAllItemsByIdCart(id_Cart);
+ 
 
-
-            //return View(model);
-            return View();
+            return View(model);
         }
 
         // GET: CartController1/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            CartDetailsViewModel model = _cartRepository.GetById(id).ToDetails();
+            model.OrderItems = _orderItemRepository.GetAllItemsByIdCart(id).Select(d=> d.ToListItem());
+            ViewBag.Id_Cart = id;
+            return View(model);
         }
 
         // GET: CartController1/Create

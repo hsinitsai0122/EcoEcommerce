@@ -1,0 +1,38 @@
+﻿@model ASP_EcoEcommerce.Models.CartDetailsViewModel
+
+@{
+    ViewData["Title"] = "Cart Details";
+}
+
+<h1>Cart Details</h1>
+
+<div class="details">
+    <h4>@Model.OrderNumber</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.OrderNumber)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.OrderNumber)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.OrderDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.OrderDate)
+        </dd>
+    </dl>
+</div>
+
+
+@* <hr /> *@
+@* 
+<h2>@Html.DisplayNameFor(model => model.OrderItems)</h2> *@
+
+<partial name="_orderItemListPartialView" model="Model.OrderItems" />
+@* <a asp-action="Create" asp-route-id_Cart="@Model.Id_Cart" class="btn btn-primary">Create New Cart</a> *@
+<div>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id_Cart }) |
+    <a asp-action="Index" class="btn btn-primary rounded-pill">Back to List</a>
+</div>

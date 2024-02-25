@@ -9,14 +9,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DAL_EcoEcommerce.Mappers;
+using System.Reflection.Metadata;
 
 namespace DAL_EcoEcommerce.Services
 {
     public class CartService : BaseService, ICartRepository<Cart>
     {
+
         public CartService(IConfiguration configuration) : base(configuration, "DB_EcoEcommerce")
-        {
+        {   
         }
+
 
         public IEnumerable<Cart> GetAll()
         {
@@ -44,7 +47,7 @@ namespace DAL_EcoEcommerce.Services
             {
                 using (SqlCommand command = connection.CreateCommand())
                 {
-                    command.CommandText = "SELECT * FROM [Cart] WHERE [Id_Cart] = @id";
+                    command.CommandText = "SELECT * FROM [Cart] WHERE [Id_Cart] = @id_Cart";
                     command.CommandType = CommandType.Text;
                     command.Parameters.AddWithValue("@Id_Cart", id);
                     connection.Open();
@@ -56,6 +59,8 @@ namespace DAL_EcoEcommerce.Services
                 }
             }
         }
+
+        
 
         public int Insert(Cart entity)
         {
@@ -106,6 +111,6 @@ namespace DAL_EcoEcommerce.Services
                 }
             }
         }
-
+       
     }
 }

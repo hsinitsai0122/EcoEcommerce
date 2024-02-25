@@ -16,15 +16,15 @@ namespace ASP_EcoEcommerce.Controllers
         private readonly IMediaRepository<BLL.Media> _mediaRepository;
         private readonly IOrderItemRepository<BLL.OrderItem> _orderItemRepository;
         private readonly ICartRepository<BLL.Cart> _cartRepository;
-        private readonly CartSessionManager _cartSessionManager;
+        //private readonly CartSessionManager _cartSessionManager;
 
-        public ProductController(IProductRepository<BLL.Product> productRepository, IMediaRepository<BLL.Media> mediaRepository, IOrderItemRepository<BLL.OrderItem> orderItemRepository, ICartRepository<BLL.Cart> cartRepository, CartSessionManager cartSessionManager)
+        public ProductController(IProductRepository<BLL.Product> productRepository, IMediaRepository<BLL.Media> mediaRepository, IOrderItemRepository<BLL.OrderItem> orderItemRepository, ICartRepository<BLL.Cart> cartRepository)
         {
             _productRepository = productRepository;
             _mediaRepository = mediaRepository;
             _orderItemRepository = orderItemRepository;
             _cartRepository = cartRepository;
-            _cartSessionManager = cartSessionManager;
+            //_cartSessionManager = cartSessionManager;
         }
 
         // GET: ProductController
@@ -197,37 +197,37 @@ namespace ASP_EcoEcommerce.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddToCart(int id, int quantity)
-        {
-            var product = _productRepository.GetById(id);
+        //public IActionResult AddToCart(int id, int quantity)
+        //{
+        //    var product = _productRepository.GetById(id);
 
-            //if (product == null)
-            //{
-            //    return NotFound();
-            //}
+        //    //if (product == null)
+        //    //{
+        //    //    return NotFound();
+        //    //}
 
-            //var cart = HttpContext.Session.Get<BLL.Cart>("Cart");
+        //    //var cart = HttpContext.Session.Get<BLL.Cart>("Cart");
 
-            //if (cart == null)
-            //{
-            //    cart = new BLL.Cart();
-            //}
+        //    //if (cart == null)
+        //    //{
+        //    //    cart = new BLL.Cart();
+        //    //}
 
-            //var orderItem = new BLL.OrderItem
-            //(
+        //    //var orderItem = new BLL.OrderItem
+        //    //(
 
-            //    id,
-            //    quantity
-            //);
+        //    //    id,
+        //    //    quantity
+        //    //);
 
-            //cart.AddToCart(orderItem); 
+        //    //cart.AddToCart(orderItem); 
 
-            //HttpContext.Session.Set("Cart", cart);
-            _cartSessionManager.AddToCart(product, quantity);
+        //    //HttpContext.Session.Set("Cart", cart);
+        //    _cartSessionManager.AddToCart(product, quantity);
 
 
-            return RedirectToAction("Index", "Cart");
-        }
+        //    return RedirectToAction("Index", "Cart");
+        //}
 
 
 

@@ -1,11 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using System.Data;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ASP_EcoEcommerce.Models
 {
-    public class CartListItemViewModel
+    public class CartDetailsViewModel
     {
         [ScaffoldColumn(false)]
         public int Id_Cart { get; set; }
@@ -19,5 +18,4 @@ namespace ASP_EcoEcommerce.Models
         // Nested view model for order items
         public IEnumerable<OrderItemListItemViewModel> OrderItems { get; set; }
     }
-
 }

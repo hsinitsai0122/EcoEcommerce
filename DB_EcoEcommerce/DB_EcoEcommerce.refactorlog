@@ -147,4 +147,11 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="Id_Cart" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="b5d2b428-d987-4e5c-936b-8c7b38fc1576" ChangeDateTime="02/24/2024 07:43:37">
+    <Property Name="ElementName" Value="[dbo].[Cart].[CartAmount]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Cart]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="OrderAmount" />
+  </Operation>
 </Operations>

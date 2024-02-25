@@ -36,7 +36,7 @@ namespace ASP_EcoEcommerce
 
             #region Services de session
             builder.Services.AddHttpContextAccessor();  //Injection de dépendance du HttpContext dans le SessionManager (Handlers)
-            builder.Services.AddScoped<CartSessionManager>();  //Injection de dépendance du SessionManager dans le contr?leur
+            //builder.Services.AddScoped<CartSessionManager>();  //Injection de dépendance du SessionManager dans le contr?leur
             builder.Services.AddDistributedMemoryCache();   //Ajout d'espace mémoire pour lier les cookie ?l'application
 
             builder.Services.AddSession(options =>          //Création d'un cookie pour sauvegarder la session
