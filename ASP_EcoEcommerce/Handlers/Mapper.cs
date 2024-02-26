@@ -109,6 +109,19 @@ namespace ASP_EcoEcommerce.Handlers
             };
         }
 
+        public static OrderItemDeleteForm ToDelete(this BLL.OrderItem entity)
+        {
+            if (entity is null) return null;
+            return new OrderItemDeleteForm()
+            {
+                Id_OrderItem = entity.Id_OrderItem,
+                Quantity = entity.Quantity,
+                Id_Product = entity.Id_Product,
+                Id_Cart = entity.Id_Cart
+
+            };
+        }
+
 
         #endregion
 
@@ -121,7 +134,7 @@ namespace ASP_EcoEcommerce.Handlers
                 Id_Cart = entity.Id_Cart,
                 OrderNumber = entity.OrderNumber,
                 OrderDate = entity.OrderDate,
-                //OrderItems = entity.OrderItems.Select(d => d.ToListItem())
+
             };
         }
 
@@ -133,7 +146,6 @@ namespace ASP_EcoEcommerce.Handlers
                 Id_Cart = entity.Id_Cart,
                 OrderNumber = entity.OrderNumber,
                 OrderDate = entity.OrderDate,
-                //OrderItems = entity.OrderItems.Select(d => d.ToListItem()),
 
             };
         }

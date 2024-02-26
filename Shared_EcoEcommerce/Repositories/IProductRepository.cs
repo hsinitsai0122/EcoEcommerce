@@ -15,7 +15,7 @@ namespace Shared_EcoEcommerce.Repositories
         public IEnumerable<TEntity> FilterByCateg(string proCateg);
 
         public IEnumerable<TEntity> FilterByEcoScore(string ecoCriteria);
-
-
+        
+        public String GetProductNameById(int id);
     }
 }

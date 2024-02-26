@@ -1,16 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel;
 
 namespace ASP_EcoEcommerce.Models
 {
-    public class OrderItemListItemViewModel
+    public class OrderItemDeleteForm
     {
-        [ScaffoldColumn(false)]
+        [HiddenInput]
         public int Id_OrderItem { get; set; }
-
-        //[DisplayName("Product Name")]
-        //public string ProductName { get; set; }
 
         [DisplayName("Order Quantity")]
         public int Quantity { get; set; }

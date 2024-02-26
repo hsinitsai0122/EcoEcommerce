@@ -1,13 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
 using Microsoft.AspNetCore.Mvc;
-using BLL_EcoEcommerce.Entities;
 
 namespace ASP_EcoEcommerce.Models
 {
-    public class CartDetailsViewModel
+    public class CartDeleteForm
     {
-        [ScaffoldColumn(false)]
+        [HiddenInput]
         public int Id_Cart { get; set; }
 
         [DisplayName("Order Number")]
@@ -18,6 +17,5 @@ namespace ASP_EcoEcommerce.Models
 
         // Nested view model for order items
         public IEnumerable<OrderItemListItemViewModel> OrderItems { get; set; }
-        public IEnumerable<IGrouping<int, OrderItem>> GroupedOrderItems { get; internal set; }
     }
 }

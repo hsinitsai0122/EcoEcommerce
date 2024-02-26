@@ -36,6 +36,28 @@ namespace BLL_EcoEcommerce.Services
                 return null;
             }
         }
+        public string GetProductNameById(int id)
+        {
+            try
+            {
+                string productName = _productRepository.GetProductNameById(id);
+
+                
+                if (productName != null)
+                {
+                    return productName; 
+                }
+                else
+                {
+                    throw new ArgumentException($"Product with ID {id} not found");
+                }
+            }
+            catch (Exception ex)
+            { 
+                throw new Exception("Error retrieving product name", ex);
+            }
+        }
+
         public IEnumerable<Product> FilterByPopularity()
         {
             return _productRepository.FilterByPopularity().Select(d => d.ToBLL());
@@ -69,7 +91,6 @@ namespace BLL_EcoEcommerce.Services
         {
             _productRepository.Delete(id);
         }
-        
 
     }
 }

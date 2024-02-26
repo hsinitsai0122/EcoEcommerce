@@ -10,7 +10,7 @@ namespace Shared_EcoEcommerce.Repositories
     {
 
 
-        public IEnumerable<TEntity> GetAllItemsByIdCart(int id);
+        public IEnumerable<TEntity> GetAllItemsByIdCart(int id_Cart);
 
         public void UpdateOrderItemQuantity(int id_OrderItem, int quantity);
 

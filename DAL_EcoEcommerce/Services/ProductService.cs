@@ -56,6 +56,27 @@ namespace DAL_EcoEcommerce.Services
                 }
             }
         }
+
+
+        public string GetProductNameById(int id)
+        {
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                using (SqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "SELECT [Name] FROM [Product] WHERE [Id_Product] = @id_Product";
+                    command.CommandType = CommandType.Text;
+                    command.Parameters.AddWithValue("@id_Product", id);
+                    connection.Open();
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read()) return reader.GetString(0); // Retrieve the product name as a string
+                        throw new ArgumentException(nameof(id), $"Product with id {id} not found");
+                    }
+                }
+            }
+        }
+
         public IEnumerable<Product> FilterByPopularity()
         {
             using(SqlConnection connection = new SqlConnection(_connectionString))
@@ -192,6 +213,7 @@ namespace DAL_EcoEcommerce.Services
                 }
             }
         }
+
 
     }
 }

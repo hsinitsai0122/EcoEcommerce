@@ -38,9 +38,9 @@ namespace BLL_EcoEcommerce.Services
                 throw new Exception("OrderItem not found");
             }
         }
-        public IEnumerable<OrderItem> GetAllItemsByIdCart(int id)
+        public IEnumerable<OrderItem> GetAllItemsByIdCart(int id_Cart)
         {
-            return _orderItemRepository.GetAllItemsByIdCart(id).Select(d => d.ToBLL());
+            return _orderItemRepository.GetAllItemsByIdCart(id_Cart).Select(d => d.ToBLL());
         }
         public void UpdateOrderItemQuantity(int Id_orderItem, int quantity)
         {

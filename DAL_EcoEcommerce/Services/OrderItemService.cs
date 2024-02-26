@@ -54,16 +54,16 @@ namespace DAL_EcoEcommerce.Services
             }
         }
 
-        public IEnumerable<OrderItem> GetAllItemsByIdCart(int id)
+        public IEnumerable<OrderItem> GetAllItemsByIdCart(int id_Cart)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 using (SqlCommand command = new SqlCommand())
                 {
                     command.Connection = connection; // Assign the connection to the command
-                    command.CommandText = "SELECT * FROM [OrderItem] WHERE [Id_Cart]= @id_Cart";
-                    command.CommandType = CommandType.Text;
-                    command.Parameters.AddWithValue("id_Cart", id);
+                    command.CommandText = "SP_OrderItem_GetAllItemsByIdCart";
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("id_Cart", id_Cart);
                     connection.Open();
                     using (SqlDataReader reader = command.ExecuteReader())
                     {

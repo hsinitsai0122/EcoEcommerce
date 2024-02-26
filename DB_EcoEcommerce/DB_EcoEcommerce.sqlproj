@@ -84,6 +84,7 @@
     <Build Include="StoredProcedures\SP_Cart_Update.sql" />
     <Build Include="StoredProcedures\SP_OrderItem_Insert.sql" />
     <Build Include="StoredProcedures\SP_OrderItem_Update.sql" />
+    <Build Include="StoredProcedures\SP_OrderItem_GetAllItemsByIdCart.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="DB_EcoEcommerce.refactorlog" />
@@ -92,6 +93,6 @@
     <None Include="DB_EcoEcommerce.publish.xml" />
   </ItemGroup>
   <ItemGroup>
-    <PostDeploy Include="Scripts\Main.Script.PostDeployment.sql" />
+    <PostDeploy Include="Scripts\Main_Script.PostDeployment.sql" />
   </ItemGroup>
 </Project>
